@@ -10,7 +10,7 @@ const app = express()
 const port = 3000
 
 app.use(morgan('dev'))
-app.use(cors())
+app.use(cors({ origin: 'http://127.0.0.1:5501' }))
 app.options('*', cors())
 app.use(helmet())
 app.use(compression())
