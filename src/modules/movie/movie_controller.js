@@ -7,9 +7,15 @@ module.exports = {
   },
   getAllMovie: async (req, res) => {
     try {
-      let { page, limit } = req.query
+      let { page, limit, searchByName } = req.query
       page = parseInt(page)
       limit = parseInt(limit)
+      // console.log('searchdata = 'searchByName)
+      // betikan default value
+      // page = 1
+      // limit = 10
+      // sort = movie_id ASC
+      // search = ''
       const totalData = await movieModel.getDataCount()
       const totalPage = Math.ceil(totalData / limit)
       const offset = page * limit - limit
@@ -19,7 +25,8 @@ module.exports = {
         limit,
         totalData
       }
-      const result = await movieModel.getDataAll(limit, offset)
+
+      const result = await movieModel.getDataAll(limit, offset, searchByName)
       return helper.response(res, 200, 'Success Get Data', result, pageInfo)
     } catch (error) {
       return helper.response(res, 400, 'Bad Request', error)

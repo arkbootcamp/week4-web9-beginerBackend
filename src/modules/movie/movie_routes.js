@@ -13,6 +13,6 @@ Route.get('/', movieController.getAllMovie)
 Route.get('/:id', movieController.getMovieById)
 Route.post('/', movieController.postMovie)
 Route.patch('/:id', movieController.updateMovie)
-Route.delete('/:id', movieController.deleteMovie)
+Route.delete('/', movieController.deleteMovie)
 
 module.exports = Route
