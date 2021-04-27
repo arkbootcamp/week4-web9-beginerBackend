@@ -1,4 +1,5 @@
 const express = require('express')
+require('dotenv').config()
 const morgan = require('morgan')
 const cors = require('cors')
 const helmet = require('helmet')
@@ -7,10 +8,10 @@ const bodyParser = require('body-parser')
 const routerNavigation = require('./routes')
 
 const app = express()
-const port = 3000
+const port = 3001
 
 app.use(morgan('dev'))
-app.use(cors({ origin: 'http://127.0.0.1:5501' }))
+app.use(cors())
 app.options('*', cors())
 app.use(helmet())
 app.use(compression())
