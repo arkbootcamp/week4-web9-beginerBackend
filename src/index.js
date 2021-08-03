@@ -19,7 +19,7 @@ app.use(compression())
 app.use(bodyParser.urlencoded({ extended: false }))
 // parse application/json
 app.use(bodyParser.json())
-app.use('/api/v1', routerNavigation)
+app.use('/', routerNavigation)
 
 // app.post('/movie', (req, res) => {
 //   console.log('Post Movie Works !')
